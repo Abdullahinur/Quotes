@@ -1,1 +1,8 @@
-{{quote}}
+<h2>"{{ quote.quote }}"</h2>
+<div><span>Author: </span>{{quote.author}}</div>
+<div><span>submitted By: </span>{{quote.submittedBy | uppercase }}</div>
+<div>
+  <label>
+  <input [(ngModel)]="quote.quote" placeholder="quote">
+  </label>
+</div>
