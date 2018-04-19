@@ -1,17 +1,7 @@
-<div *ngIf="selectedQuote">
-  <h2>{{ selectedQuote.quote | uppercase }} Details</h2>
-  <div><span>Author: </span>{{selectedQuote.author}}
-  </div>
-  <div>
-    <label>Quote:
-      <input [(ngModel)]="selectedQuote.quote" placeholder="quotes">
-    </label>
-  </div>
-
-</div>
+<app-quote-detail [quote]="selectedQuote"></app-quote-detail>
 <h2>My Quotes</h2>
 <ul class="heroes">
-  <li *ngFor="let quote of quotes" (click)="onSelect(quote)">
+  <li *ngFor="let quote of quotes" (click)="onSelect(quote)" [class.selected]="quote === selectedQuote">
     <h2>"{{ quote.quote }}"</h2>
     <span class="badge">Author: {{quote.author}}</span> <p>Submitted By: {{quote.submittedBy}}</p>
   </li>
