@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '../quote-model';
 import { QUOTES } from '../mock-quotes';
+import { QuoteService } from '../quote.service';
 
 @Component({
   selector: 'app-quotes',
@@ -8,16 +9,25 @@ import { QUOTES } from '../mock-quotes';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-  quotes = QUOTES;
+quotes: Quote[];
+
 
   selectedQuote: Quote;
 
   onSelect(quote: Quote): void {
     this.selectedQuote = quote;
   }
-  constructor() { }
+
+
+  constructor(private quoteService: QuoteService) {}
+
+
+   getQuotes(): void {
+     this.quotes = this.quoteService.getQuotes();
+   }
 
   ngOnInit() {
+    this.getQuotes();
   }
 
 }

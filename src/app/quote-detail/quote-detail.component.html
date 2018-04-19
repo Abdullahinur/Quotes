@@ -1,10 +1,18 @@
 <div *ngIf="quote">
   <h2>"{{ quote.quote | uppercase }}"<hr> Details</h2>
-  <div><span>Author: </span>{{quote.author}}
-  </div>
   <div>
     <label>Quote:
-      <input [(ngModel)]="quote.quote" placeholder="quotes">
+      <input [(ngModel)]="quote.quote" placeholder="Quotes">
+    </label>
+  </div>
+  <div>
+    <label>Author:
+      <input [(ngModel)]="quote.author" placeholder="Author">
+    </label>
+  </div>
+  <div>
+    <label>Submitted By:
+      <input [(ngModel)]="quote.submittedBy" placeholder="Submitted By">
     </label>
   </div>
 
