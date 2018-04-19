@@ -1,8 +1,18 @@
-<h2>"{{ quote.quote }}"</h2>
-<div><span>Author: </span>{{quote.author}}</div>
-<div><span>submitted By: </span>{{quote.submittedBy | uppercase }}</div>
-<div>
-  <label>
-  <input [(ngModel)]="quote.quote" placeholder="quote">
-  </label>
+<div *ngIf="selectedQuote">
+  <h2>{{ selectedQuote.quote | uppercase }} Details</h2>
+  <div><span>Author: </span>{{selectedQuote.author}}
+  </div>
+  <div>
+    <label>Quote:
+      <input [(ngModel)]="selectedQuote.quote" placeholder="quotes">
+    </label>
+  </div>
+
 </div>
+<h2>My Quotes</h2>
+<ul class="heroes">
+  <li *ngFor="let quote of quotes" (click)="onSelect(quote)">
+    <h2>"{{ quote.quote }}"</h2>
+    <span class="badge">Author: {{quote.author}}</span> <p>Submitted By: {{quote.submittedBy}}</p>
+  </li>
+</ul>
