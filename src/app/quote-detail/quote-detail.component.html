@@ -1,5 +1,6 @@
 <div *ngIf="quote">
-  <h2>"{{ quote.quote | uppercase }}"<hr> Details</h2>
+  <h2>"{{ quote.quote | uppercase }}"<hr></h2>
+  <h3>Details</h3>
   <div>
     <label>Quote:
       <input [(ngModel)]="quote.quote" placeholder="Quotes">

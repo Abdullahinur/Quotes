@@ -11,7 +11,6 @@ import { QuoteService } from '../quote.service';
 export class QuotesComponent implements OnInit {
 quotes: Quote[];
 
-
   selectedQuote: Quote;
 
   onSelect(quote: Quote): void {
@@ -19,11 +18,15 @@ quotes: Quote[];
   }
 
 
-  constructor(private quoteService: QuoteService) {}
+  constructor(private quoteService: QuoteService) {
+    // this.quotes = this.quoteService.getQuotes()
+
+  }
 
 
    getQuotes(): void {
-     this.quotes = this.quoteService.getQuotes();
+     this.quoteService.getQuotes()
+         .subscribe(quotes => this.quotes = quotes);
    }
 
   ngOnInit() {
