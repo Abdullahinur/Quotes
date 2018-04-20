@@ -3,13 +3,16 @@ import { Quote } from './quote-model';
 import { QUOTES } from './mock-quotes';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { MessageService } from './message.service'
 
 @Injectable()
 export class QuoteService {
 
     getQuotes(): Observable<Quote[]> {
+      // TODO: send the message_after_fetching the heroes
+          this.messageService.add('Quotes from the api will be streamed here')
           return of(QUOTES);
 }
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
 }

@@ -7,18 +7,25 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { FormsModule } from '@angular/forms';
 import { QuoteDetailComponent } from './quote-detail/quote-detail.component';
 import { QuoteService } from './quote.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuotesComponent,
-    QuoteDetailComponent
+    QuoteDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
   ],
-  providers: [QuoteService],
+  providers: [QuoteService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
