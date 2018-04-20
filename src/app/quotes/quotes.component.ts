@@ -11,17 +11,9 @@ import { QuoteService } from '../quote.service';
 export class QuotesComponent implements OnInit {
 quotes: Quote[];
 
-  selectedQuote: Quote;
-
-  onSelect(quote: Quote): void {
-    this.selectedQuote = quote;
-  }
 
 
-  constructor(private quoteService: QuoteService) {
-    // this.quotes = this.quoteService.getQuotes()
-
-  }
+  constructor(private quoteService: QuoteService) {}
 
 
    getQuotes(): void {

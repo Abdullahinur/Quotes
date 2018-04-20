@@ -1,8 +1,10 @@
 <app-quote-detail [quote]="selectedQuote"></app-quote-detail>
 <h2>My Quotes</h2>
-<ul class="heroes">
-  <li *ngFor="let quote of quotes" (click)="onSelect(quote)" [class.selected]="quote === selectedQuote">
-    <h2>"{{ quote.quote }}"</h2>
-    <span class="badge">Author: {{quote.author}}</span> <p>Submitted By: {{quote.submittedBy}}</p>
+<ul class="quotes">
+  <li *ngFor="let quote of quotes">
+    <a routerLink="/detail/{{quote.quote}}">
+      <span>{{quote.quote}}</span>
+      <h4>{{quote.submittedBy}}</h4>
+    </a>
   </li>
 </ul>

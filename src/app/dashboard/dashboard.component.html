@@ -1,8 +1,10 @@
 <h3>Top Quotes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let quote of quotes" class="col-1-4">
+<div *ngFor="let quote of quotes" class="grid grid-pad">
+<a  class="col-1-4" routerLink="/detail/{{quote.quote}}">
     <div class="module hero">
-      <h4>{{quote.quote}}</h4>
+      <h4>Quote: {{quote.quote}}</h4>
     </div>
   </a>
+      <h5>Author: {{quote.author}}</h5>
+      <h5>Submitted By: {{quote.submittedBy}}</h5>
 </div>

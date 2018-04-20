@@ -10,7 +10,7 @@ export class QuoteService {
 
     getQuotes(): Observable<Quote[]> {
       // TODO: send the message_after_fetching the heroes
-          this.messageService.add('Quotes from the api will be streamed here')
+          this.messageService.add('QuoteService: fetched quotes')
           return of(QUOTES);
 }
   constructor(private messageService: MessageService) { }
