@@ -6,6 +6,12 @@ import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service'
 import { catchError, map, tap } from 'rxjs/operators';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type':  'application/json'})
+};
+
+
 @Injectable()
 export class QuoteService {
   private quotesUrl = 'api/quotes'; //URL TO WEB API
@@ -13,17 +19,18 @@ export class QuoteService {
   constructor(private http: HttpClient, private messageService: MessageService) { }
     getQuotes(): Observable<Quote[]> {
       return this.http.get<Quote[]>(this.quotesUrl)
-        .pipe(tap(quotes => this.log(`fetched quotes`))
+        .pipe(tap(quotes => this.log(`fetched quotes`)),
           catchError(this.handlerError('getQuotes', [])));
 
 
 }
 
   getQuote(id: number): Observable<Quote> {
-    // TODO: send the message_after_fetching the heroes
-    this.messageService.add(`QuoteService: fetched author Number   ${id}`);
-    return of(QUOTES.find(quote => quote.id === id));
 
+    const url = `${this.quotesUrl}/${id}`;
+    return this.http.get<Quote>(url).pipe(tap(_=> this.log(`fetched quote id=${id}`)),
+    catchError(this.handlerError<Quote>(`getQuote id=${id}`))
+  );
 }
 
   private log(message: string) {
@@ -49,5 +56,12 @@ export class QuoteService {
     return of(result as T);
   };
     }
+
+    updateQuote (quote: Quote): Observable<any> {
+      return this.http.put(this.quotesUrl, quote, httpOptions).pipe(
+      tap(_=>this.log(`updated quote id ${quote.id}`)),
+      catchError(this.handlerError<any>('updateQuote'))
+    );
+
   }
 }

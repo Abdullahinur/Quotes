@@ -30,4 +30,9 @@ export class QuoteDetailComponent implements OnInit {
   goBack(): void {
   this.location.back();
 }
+
+save(): void {
+    this.quoteService.updateQuote(this.quote)
+    .subscribe(() => this.goBack());
+  }
 }
