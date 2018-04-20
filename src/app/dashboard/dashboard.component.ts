@@ -18,7 +18,9 @@ export class DashboardComponent implements OnInit {
 
   getQuotes(): void {
     this.quoteService.getQuotes()
-    .subscribe(quotes => this.quotes = quotes.slice(1, 5));
+    .subscribe(quotes => this.quotes = quotes.slice(1, 2));
   }
+
+
 
 }

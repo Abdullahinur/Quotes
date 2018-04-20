@@ -8,7 +8,7 @@ import { QuoteDetailComponent } from './quote-detail/quote-detail.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:quote', component: QuoteDetailComponent },
+  { path: 'detail/:id', component: QuoteDetailComponent },
   { path: 'quotes', component: QuotesComponent },
 ];
 

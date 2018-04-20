@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Quote } from '../quote-model';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { QuoteService }  from '../quote.service';
 
 @Component({
   selector: 'app-quote-detail',
@@ -8,9 +12,23 @@ import { Quote } from '../quote-model';
 })
 export class QuoteDetailComponent implements OnInit {
 @Input() quote: Quote;
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private quoteService: QuoteService,
+    private location: Location,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getQuote();
   }
 
+  getQuote(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.quoteService.getQuote(id)
+      .subscribe(quote => this.quote = quote)
+  }
+
+  goBack(): void {
+  this.location.back();
+}
 }

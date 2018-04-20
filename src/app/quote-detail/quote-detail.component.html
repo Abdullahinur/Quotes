@@ -1,3 +1,4 @@
+<button (click)="goBack()">go back</button>
 <div *ngIf="quote">
   <h2>"{{ quote.quote | uppercase }}"<hr></h2>
   <h3>Details</h3>
@@ -16,5 +17,4 @@
       <input [(ngModel)]="quote.submittedBy" placeholder="Submitted By">
     </label>
   </div>
-
 </div>
