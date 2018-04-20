@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '../quote-model';
-import { QUOTES } from '../mock-quotes';
 import { QuoteService } from '../quote.service';
 
 @Component({
