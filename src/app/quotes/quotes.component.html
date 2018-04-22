@@ -18,14 +18,14 @@
 
 </form>
 <h2>My Quotes</h2>
-<blockquote class="default" *ngFor="let quote of quotes">
+<blockquote class="bluejeans" *ngFor="let quote of quotes">
   <a routerLink="/detail/{{quote.id}}">
-  <h1><span class="Cdefault">"{{quote.quote}}"</span></h1>
+  <h1><span class="Cpinkrose">"{{quote.quote}}"</span></h1>
 </a>
   <p>{{quote.submittedBy}}</p>
 <code>
 <span>{{quote.author}}</span>
 </code>
-<button class="bubbly-button Cdefault" title="delete quote"
+<button class="bubbly-button Cbluejeans" title="delete quote"
 (click)="delete(quote)">x</button>
 </blockquote>
