@@ -5,6 +5,7 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { QuoteDetailComponent } from './quote-detail/quote-detail.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -16,5 +17,6 @@ const routes: Routes = [
   imports: [ RouterModule. forRoot(routes) ],
   exports: [ RouterModule ],
 })
+
 
 export class AppRoutingModule {}

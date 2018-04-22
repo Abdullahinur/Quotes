@@ -8,3 +8,18 @@
     </a>
   </li>
 </ul>
+<div>
+  <label>Quote:
+    <input #quoteQuote />
+  </label>
+  <label>Author:
+    <input #quoteAuthor>
+  </label>
+  <label>Submitted By:
+    <input #quoteSubmittedBy>
+  </label>
+
+  <button (click)="add(quoteQuote.value, quoteAuthor.value, quoteSubmittedBy.value); quoteQuote.value=''; quoteAuthor.value; quoteSubmittedBy.value">
+    add
+  </button>
+</div>

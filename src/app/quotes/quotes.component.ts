@@ -14,14 +14,23 @@ quotes: Quote[];
 
   constructor(private quoteService: QuoteService) {}
 
+  ngOnInit() {
+    this.getQuotes();
+  }
 
    getQuotes(): void {
      this.quoteService.getQuotes()
          .subscribe(quotes => this.quotes = quotes);
    }
 
-  ngOnInit() {
-    this.getQuotes();
+
+  add(quote: string, author: string, submittedBy: any): void {
+    quote = quote.trim();
+    author = author.trim();
+    submittedBy = submittedBy.trim();
+
+    if (!quote) (author, submittedBy) => { return; }
+    this.quoteService.addQuote({ quote, author, submittedBy } as Quote).subscribe(quote => { this.quotes.push(quote)}, author => {this.quotes.push(author)}, submittedBy)
   }
 
 }
