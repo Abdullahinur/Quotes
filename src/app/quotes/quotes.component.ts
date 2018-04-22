@@ -23,7 +23,9 @@ quotes: Quote[];
          .subscribe(quotes => this.quotes = quotes);
    }
 
-
+  ab() {
+    alert('working')
+  }
   add(quote: string, author: string, submittedBy: any): void {
     quote = quote.trim();
     author = author.trim();
@@ -33,4 +35,8 @@ quotes: Quote[];
     this.quoteService.addQuote({ quote, author, submittedBy } as Quote).subscribe(quote => { this.quotes.push(quote)}, author => {this.quotes.push(author)}, submittedBy)
   }
 
+  delete(quote: Quote): void {
+    this.quotes = this.quotes.filter(q => q !== quote);
+    this.quoteService.deleteQuote(quote).subscribe();
+  }
 }

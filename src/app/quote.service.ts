@@ -57,16 +57,24 @@ export class QuoteService {
   };
     }
 
+    deleteQuote (quote: Quote | number): Observable<Quote> {
+      const id = typeof quote === 'number' ? quote : quote.id;
+      const url = `${this.quotesUrl}/${id}`;
+
+      return this.http.delete<Quote>(url, httpOptions).pipe(tap(_ => this.log(`delete hero id=${id}`)),
+      catchError(this.handlerError<Quote>('deleteQuote')))
+    };
+
     addQuote (quote: Quote): Observable<Quote> {
       return this.http.post<Quote>(this.quotesUrl, quote, httpOptions).pipe(tap((quote: Quote) => this.log(`added quote w/ id=${quote.id}`)),
       catchError(this.handlerError<Quote>('addQuote'))
     );
-  }
+  };
     updateQuote (quote: Quote): Observable<any> {
       return this.http.put(this.quotesUrl, quote, httpOptions).pipe(
-      tap(_=>this.log(`updated quote id ${quote.id}`)),
-      catchError(this.handlerError<any>('updateQuote'))
-    );
+        tap(_=>this.log(`updated quote id ${quote.id}`)),
+        catchError(this.handlerError<any>('updateQuote'))
+      );
+    }
 
-  }
 }
