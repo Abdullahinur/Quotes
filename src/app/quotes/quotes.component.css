@@ -299,3 +299,7 @@ span.Clight{
 span.Cgray{
   color:#aab2bc;
 }
+
+h1 span:hover {
+  color: #34bc9d;
+}
