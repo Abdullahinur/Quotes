@@ -1,3 +1,4 @@
+<app-quote-search></app-quote-search>
 <h3>Top Quote</h3>
 <div *ngFor="let quote of quotes" class="grid grid-pad">
 <a  class="col-1-4" routerLink="/detail/{{quote.id}}">
@@ -8,5 +9,3 @@
       <h5>Author: {{quote.author}}</h5>
       <h5>Submitted By: {{quote.submittedBy}}</h5>
 </div>
-
-<a *ngFor="let quote of quotes" class="col-1-4" routerLink="/detail/{{quote.id}}">

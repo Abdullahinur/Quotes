@@ -1,27 +1,27 @@
+<hr>
 <app-quote-detail [quote]="selectedQuote"></app-quote-detail>
-<h2>My Quotes</h2>
-<ul class="quotes">
-  <li *ngFor="let quote of quotes">
-    <a routerLink="/detail/{{quote.id}}">
-      <span>"{{quote.quote}}"</span>
-      <ol>{{quote.id}}-->{{quote.author}}</ol>
-    </a>
-    <button class="delete" title="delete quote"
-(click)="delete(quote)">x</button>
-  </li>
-</ul>
-<div>
+<hr>
+<form class="dark-matter">
+  <h1>Enter a Quote</h1>
   <label>Quote:
-    <input #quoteQuote />
+    <input type="text" class="input" #quoteQuote />
   </label>
   <label>Author:
-    <input #quoteAuthor>
+    <input type="text" class="input" #quoteAuthor>
   </label>
   <label>Submitted By:
-    <input #quoteSubmittedBy>
+    <input type="text"  class="input" #quoteSubmittedBy>
   </label>
-
-  <button (click)="add(quoteQuote.value, quoteAuthor.value, quoteSubmittedBy.value); quoteQuote.value=''; quoteAuthor.value; quoteSubmittedBy.value">
+  <button class="button" (click)="add(quoteQuote.value, quoteAuthor.value, quoteSubmittedBy.value); quoteQuote.value=''; quoteAuthor.value; quoteSubmittedBy.value">
     add
   </button>
-</div>
+
+</form>
+<h2>My Quotes</h2>
+<section class="effect effect-b" *ngFor="let quote of quotes">
+
+  <a routerLink="/detail/{{quote.id}}">
+  <h1 class="effect__heading">"{{quote.quote}}"</h1>
+</a>
+  <h2 class="effect__subheading">{{quote.author}}</h2>
+</section>

@@ -70,11 +70,22 @@ export class QuoteService {
       catchError(this.handlerError<Quote>('addQuote'))
     );
   };
+
     updateQuote (quote: Quote): Observable<any> {
       return this.http.put(this.quotesUrl, quote, httpOptions).pipe(
         tap(_=>this.log(`updated quote id ${quote.id}`)),
         catchError(this.handlerError<any>('updateQuote'))
       );
+    };
+
+    searchQuotes(term: string): Observable<Quote[]> {
+      if (!term.trim()) {
+        // if no search term return empty quote array.
+        return of ([]);
+      }
+      return this.http.get<Quote[]>(`api/quotes/?name=${term}`).pipe(tap(_ => this.log(`found quotes matching "${term}"`)),
+      catchError(this.handlerError<Quote[]>(`searchQuotes`, []))
+    );
     }
 
 }

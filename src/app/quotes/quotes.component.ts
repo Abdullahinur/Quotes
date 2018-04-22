@@ -5,7 +5,7 @@ import { QuoteService } from '../quote.service';
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',
-  styleUrls: ['./quotes.component.css']
+  styleUrls: ['./quotes.component.css', './styles.scss']
 })
 export class QuotesComponent implements OnInit {
 quotes: Quote[];
@@ -39,4 +39,5 @@ quotes: Quote[];
     this.quotes = this.quotes.filter(q => q !== quote);
     this.quoteService.deleteQuote(quote).subscribe();
   }
+
 }

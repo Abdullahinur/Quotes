@@ -1,7 +1,11 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
+<div class="My-header">
+  <h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard">Home</a>
+  </nav>
+  <nav>
   <a routerLink="/quotes">Quotes</a>
 </nav>
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

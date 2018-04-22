@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { QuoteSearchComponent } from './quote-search/quote-search.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
     QuotesComponent,
     QuoteDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    QuoteSearchComponent
   ],
   imports: [
     BrowserModule,
