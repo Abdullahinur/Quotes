@@ -18,10 +18,14 @@
 
 </form>
 <h2>My Quotes</h2>
-<section class="effect effect-b" *ngFor="let quote of quotes">
-
+<blockquote class="default" *ngFor="let quote of quotes">
   <a routerLink="/detail/{{quote.id}}">
-  <h1 class="effect__heading">"{{quote.quote}}"</h1>
+  <h1><span class="Cdefault">"{{quote.quote}}"</span></h1>
 </a>
-  <h2 class="effect__subheading">{{quote.author}}</h2>
-</section>
+  <p>{{quote.submittedBy}}</p>
+<code>
+<span>{{quote.author}}</span>
+</code>
+<button class="bubbly-button Cdefault" title="delete quote"
+(click)="delete(quote)">x</button>
+</blockquote>

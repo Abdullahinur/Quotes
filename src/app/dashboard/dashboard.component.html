@@ -2,10 +2,19 @@
 <h3>Top Quote</h3>
 <div *ngFor="let quote of quotes" class="grid grid-pad">
 <a  class="col-1-4" routerLink="/detail/{{quote.id}}">
-    <div class="module hero">
-      <h4>Quote: {{quote.quote}}</h4>
+    <div class="">
+      <h2>Quote: {{quote.quote}}</h2>
     </div>
   </a>
       <h5>Author: {{quote.author}}</h5>
       <h5>Submitted By: {{quote.submittedBy}}</h5>
 </div>
+<blockquote class="default">
+  <h1><span class="Cdefault">DEFAULT</span> - Blockquote Color Palette</h1>
+  <p>Use this class for blockquote layout.</p>
+<code>
+  &lt;blockquote class="<span class="Cdefault">default</span>"&gt;
+       Some Text...
+   &lt;/blockquote&gt;
+</code>
+</blockquote>
