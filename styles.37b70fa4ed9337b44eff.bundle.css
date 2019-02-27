@@ -1,0 +1,1 @@
+body{background-color:#14abc6;animation:50s colorchange;-webkit-animation:30s colorchange}@keyframes colorchange{0%{background:#011015}25%{background:#0c3046}50%{background:#015b90}75%{background:#0c84a7}100%{background:#14abc6}}@-webkit-keyframes colorchange{0%{background:#011015}25%{background:#0c3046}50%{background:#015b90}75%{background:#0c84a7}100%{background:#14abc6}}
